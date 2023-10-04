@@ -1,7 +1,7 @@
 # PROVIDER
 terraform {
 
-  required_version = "~> 1.5.4"
+  required_version = "~> 1.5.6"
 
   required_providers {
     aws = {
@@ -11,17 +11,12 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "tf-notifier-state-v1"
-    key            = "terraform.tfstate"
-    dynamodb_table = "tf-notifier-state-v1"
+    bucket         = "app-notifier-tf"
+    key            = "terraform.tfnotifier"
+    dynamodb_table = "app-notifier-tf"
     region         = "us-east-1"
   }
 
 }
 
-# provider "aws" {
-#   region                   = "us-east-1"
-#   shared_config_files      = ["./.aws/config"]
-#   shared_credentials_files = ["./.aws/credentials"]
-#   profile                  = "fiap"
-# }
+
